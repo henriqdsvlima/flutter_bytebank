@@ -21,10 +21,10 @@ class TransferList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        TransferItem('10', '1000'),
-        TransferItem('20', '2000'),
-        TransferItem('30', '3000'),
-        TransferItem('40', '4000'),
+        TransferItem('10.0', '1000'),
+        TransferItem('20.0', '2000'),
+        TransferItem('30.0', '3000'),
+        TransferItem('40.0', '4000'),
       ], //<Widget>[]
     );
   }
