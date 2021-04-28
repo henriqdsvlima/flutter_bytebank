@@ -12,6 +12,13 @@ void main() => runApp(MaterialApp(
                 subtitle: Text('2000'),
               ), //ListTile
             ), //Card
+            Card(
+              child: ListTile(
+                leading: Icon(Icons.monetization_on),
+                title: Text('200 reais'),
+                subtitle: Text('2000'),
+              ), //ListTile
+            ), //Card
           ], //<Widget>[]
         ), //Column
         appBar: AppBar(
