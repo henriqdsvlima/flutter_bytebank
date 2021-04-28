@@ -33,7 +33,7 @@ class TransferList extends StatelessWidget {
 class TransferItem extends StatelessWidget {
   Transfer _transfer;
 
-  TransferItem(this._transferValue, this._accountNumber);
+  TransferItem(this._transfer);
 
   @override
   Widget build(BuildContext context) {
