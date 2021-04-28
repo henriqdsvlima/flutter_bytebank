@@ -31,19 +31,25 @@ class TransferList extends StatelessWidget {
 }
 
 class TransferItem extends StatelessWidget {
-  final String transferValue;
-  final String accountNumber;
+  Transfer _transfer;
 
-  TransferItem(this.transferValue, this.accountNumber);
+  TransferItem(this._transferValue, this._accountNumber);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
         leading: Icon(Icons.monetization_on),
-        title: Text(transferValue),
-        subtitle: Text(accountNumber),
+        title: Text(_transfer.transferValue.toString()),
+        subtitle: Text(_transfer.accountNumber.toString()),
       ), //ListTile
     ); //Card
   }
+}
+
+class Transfer {
+  final double _transferValue;
+  final int _accountNumber;
+
+  Transfer(this._transferValue, this._accountNumber);
 }
