@@ -48,8 +48,8 @@ class TransferItem extends StatelessWidget {
 }
 
 class Transfer {
-  final double _transferValue;
-  final int _accountNumber;
+  final double transferValue;
+  final int accountNumber;
 
-  Transfer(this._transferValue, this._accountNumber);
+  Transfer(this.transferValue, this.accountNumber);
 }
