@@ -35,6 +35,13 @@ class TransferList extends StatelessWidget {
             subtitle: Text('2000'),
           ), //ListTile
         ), //Card
+        Card(
+          child: ListTile(
+            leading: Icon(Icons.monetization_on),
+            title: Text('311 reais'),
+            subtitle: Text('2000'),
+          ), //ListTile
+        ), //Card
       ], //<Widget>[]
     );
   }
