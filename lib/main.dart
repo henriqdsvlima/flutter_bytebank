@@ -21,23 +21,28 @@ class TransferList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        TransferItem(),
-        TransferItem(),
-        TransferItem(),
-        TransferItem(),
+        TransferItem('10', '1000'),
+        TransferItem('20', '2000'),
+        TransferItem('30', '3000'),
+        TransferItem('40', '4000'),
       ], //<Widget>[]
     );
   }
 }
 
 class TransferItem extends StatelessWidget {
+  final String transferValue;
+  final String accountNumber;
+
+  TransferItem(this.transferValue, this.accountNumber);
+
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
         leading: Icon(Icons.monetization_on),
-        title: Text('200 reais'),
-        subtitle: Text('2000'),
+        title: Text(transferValue),
+        subtitle: Text(accountNumber),
       ), //ListTile
     ); //Card
   }
