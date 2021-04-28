@@ -3,24 +3,7 @@ import 'package:flutter/src/material/list_tile.dart';
 
 void main() => runApp(MaterialApp(
       home: Scaffold(
-        body: Column(
-          children: <Widget>[
-            Card(
-              child: ListTile(
-                leading: Icon(Icons.monetization_on),
-                title: Text('199 reais'),
-                subtitle: Text('2000'),
-              ), //ListTile
-            ), //Card
-            Card(
-              child: ListTile(
-                leading: Icon(Icons.monetization_on),
-                title: Text('200 reais'),
-                subtitle: Text('2000'),
-              ), //ListTile
-            ), //Card
-          ], //<Widget>[]
-        ), //Column
+        body: TransferList(), //Column
         appBar: AppBar(
           title: Text('Transferências'),
         ), //AppBar
@@ -30,3 +13,29 @@ void main() => runApp(MaterialApp(
       ), //Scaffold
     )); //Material App
 
+//StatelessWidget - não conseguimos modificar o conteúdo entao a partir do momento em que é construido, não é possivel modificar o conteúdo;
+//StatefulWidget - teremos a capacidade de modificar o conteúdo do widget de maneira dinamica;
+
+class TransferList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Card(
+          child: ListTile(
+            leading: Icon(Icons.monetization_on),
+            title: Text('199 reais'),
+            subtitle: Text('2000'),
+          ), //ListTile
+        ), //Card
+        Card(
+          child: ListTile(
+            leading: Icon(Icons.monetization_on),
+            title: Text('200 reais'),
+            subtitle: Text('2000'),
+          ), //ListTile
+        ), //Card
+      ], //<Widget>[]
+    );
+  }
+}
