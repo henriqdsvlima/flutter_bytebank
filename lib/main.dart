@@ -72,7 +72,7 @@ class TransferForm extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            TextField('Testandro')
+            TextField('Testandro'),
           ], //<Widget>[]
         )); // Column, Scaffold
   }
