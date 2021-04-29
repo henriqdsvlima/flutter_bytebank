@@ -102,7 +102,6 @@ class TransferForm extends StatelessWidget {
             ), //Padding,
             RaisedButton(
               child: Text('Confirmar'),
-              onPressed: () {},
             )
           ], //<Widget>[]
         )); // Column, Scaffold
