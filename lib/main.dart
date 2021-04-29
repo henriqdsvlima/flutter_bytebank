@@ -4,17 +4,6 @@ import 'package:flutter/src/widgets/framework.dart';
 
 void main() => runApp(ByteBankApp()); //Material App
 
-class ByteBankApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: TransferForm(),
-      ), //Scaffold
-    ); //MaterialApp
-  }
-}
-
 //StatelessWidget - não conseguimos modificar o conteúdo entao a partir do momento em que é construido, não é possivel modificar o conteúdo;
 //StatefulWidget - teremos a capacidade de modificar o conteúdo do widget de maneira dinamica;
 
@@ -60,6 +49,17 @@ class Transfer {
   final int accountNumber;
 
   Transfer(this.transferValue, this.accountNumber);
+}
+
+class ByteBankApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: TransferForm(),
+      ), //Scaffold
+    ); //MaterialApp
+  }
 }
 
 class TransferForm extends StatelessWidget {
