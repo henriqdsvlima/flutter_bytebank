@@ -83,8 +83,8 @@ class TransferForm extends StatelessWidget {
                   hintText: '0000',
                 ), //Inputdecoration
                 keyBoyardType: TextInputType.number,
-              ),
-            ), //TextField
+              ), //TextField
+            ), //Padding
             TextField(),
             RaisedButton()
           ], //<Widget>[]
