@@ -73,7 +73,7 @@ class TransferForm extends StatelessWidget {
         body: Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(16.0),
               child: TextField(
                 style: TextStyle(
                   fontSize: 20.0,
