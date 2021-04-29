@@ -73,7 +73,7 @@ class TransferForm extends StatelessWidget {
         body: Column(
           children: <Widget>[
             TextField(
-              textStyle: TextStyle(
+              style: TextStyle(
                 fontSize: 10.0,
               ), //TextStyle
               decoration: InputDecoration(
