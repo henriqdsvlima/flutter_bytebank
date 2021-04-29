@@ -85,7 +85,21 @@ class TransferForm extends StatelessWidget {
                 keyboardType: TextInputType.number,
               ), //TextField
             ), //Padding
-            TextField(),
+            TextField(
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: TextField(
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ), //TextStyle
+                  decoration: InputDecoration(
+                    labelText: 'Valor a Transferir',
+                    hintText: '0000',
+                  ), //Inputdecoration
+                  keyboardType: TextInputType.number,
+                ), //TextField
+              ), //Padding
+            ),
             RaisedButton()
           ], //<Widget>[]
         )); // Column, Scaffold
