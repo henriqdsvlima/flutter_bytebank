@@ -79,6 +79,7 @@ class TransferForm extends StatelessWidget {
                   fontSize: 20.0,
                 ), //TextStyle
                 decoration: InputDecoration(
+                  icon: Icons(Icon.account_balance_wallet),
                   labelText: 'Número da Conta',
                   hintText: '0000',
                 ), //Inputdecoration
