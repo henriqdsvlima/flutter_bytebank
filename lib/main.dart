@@ -7,9 +7,9 @@ void main() => runApp(MaterialApp(
         appBar: AppBar(
           title: Text('Transferências'),
         ), //AppBar
-        floatingActionButton: FloatingActionButton(child: Icon(Icons.add)), // FloatingActionButton
-      ), //Scaffold
-    )); //Material App
+        //Scaffold
+    )
+    ); //Material App
 
 //StatelessWidget - não conseguimos modificar o conteúdo entao a partir do momento em que é construido, não é possivel modificar o conteúdo;
 //StatefulWidget - teremos a capacidade de modificar o conteúdo do widget de maneira dinamica;
@@ -17,13 +17,17 @@ void main() => runApp(MaterialApp(
 class TransferList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        TransferItem(Transfer(1990.0, 1001)),
-        TransferItem(Transfer(122.0, 1001)),
-        TransferItem(Transfer(133.0, 1001)),
-        TransferItem(Transfer(144.0, 1001)),
-      ], //<Widget>[]
+    return Scaffold(
+      body: Column(
+        children: <Widget>[
+          TransferItem(Transfer(1990.0, 1001)),
+          TransferItem(Transfer(122.0, 1001)),
+          TransferItem(Transfer(133.0, 1001)),
+          TransferItem(Transfer(144.0, 1001)),
+        ], //<Widget>[]
+      ),// Column
+       floatingActionButton: FloatingActionButton(child: Icon(Icons.add)), // FloatingActionButton
+      ),
     );
   }
 }
@@ -50,4 +54,11 @@ class Transfer {
   final int accountNumber;
 
   Transfer(this.transferValue, this.accountNumber);
+}
+
+class TransferForm extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
 }
