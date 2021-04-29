@@ -7,6 +7,41 @@ void main() => runApp(ByteBankApp()); //Material App
 //StatelessWidget - não conseguimos modificar o conteúdo entao a partir do momento em que é construido, não é possivel modificar o conteúdo;
 //StatefulWidget - teremos a capacidade de modificar o conteúdo do widget de maneira dinamica;
 
+class ByteBankApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: TransferForm(),
+      ), //Scaffold
+    ); //MaterialApp
+  }
+}
+
+class Transfer {
+  final double transferValue;
+  final int accountNumber;
+
+  Transfer(this.transferValue, this.accountNumber);
+}
+
+class TransferItem extends StatelessWidget {
+  Transfer _transfer;
+
+  TransferItem(this._transfer);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        leading: Icon(Icons.monetization_on),
+        title: Text(_transfer.transferValue.toString()),
+        subtitle: Text(_transfer.accountNumber.toString()),
+      ), //ListTile
+    ); //Card
+  }
+}
+
 class TransferList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -27,44 +62,9 @@ class TransferList extends StatelessWidget {
   }
 }
 
-class TransferItem extends StatelessWidget {
-  Transfer _transfer;
-
-  TransferItem(this._transfer);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        leading: Icon(Icons.monetization_on),
-        title: Text(_transfer.transferValue.toString()),
-        subtitle: Text(_transfer.accountNumber.toString()),
-      ), //ListTile
-    ); //Card
-  }
-}
-
-class Transfer {
-  final double transferValue;
-  final int accountNumber;
-
-  Transfer(this.transferValue, this.accountNumber);
-}
-
-class ByteBankApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: TransferForm(),
-      ), //Scaffold
-    ); //MaterialApp
-  }
-}
-
 class TransferForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(body: TransferList());
+    return Container();
   }
 }
