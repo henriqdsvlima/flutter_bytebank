@@ -82,7 +82,7 @@ class TransferForm extends StatelessWidget {
                   labelText: 'Número da Conta',
                   hintText: '0000',
                 ), //Inputdecoration
-                keyBoardType: TextInputType.number,
+                keyboardType: TextInputType.number,
               ), //TextField
             ), //Padding
             TextField(),
