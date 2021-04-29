@@ -4,10 +4,6 @@ import 'package:flutter/src/material/list_tile.dart';
 void main() => runApp(MaterialApp(
       home: Scaffold(
         body: TransferList(), //Column
-        appBar: AppBar(
-          title: Text('Transferências'),
-        ), //AppBar
-        
       ), //Scaffold
     )); //Material App
 
@@ -18,6 +14,9 @@ class TransferList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Transferências'),
+      ), //AppBar
       body: Column(
         children: <Widget>[
           TransferItem(Transfer(1990.0, 1001)),
@@ -25,7 +24,7 @@ class TransferList extends StatelessWidget {
           TransferItem(Transfer(133.0, 1001)),
           TransferItem(Transfer(144.0, 1001)),
         ], //<Widget>[]
-      ),//Column
+      ), //Column
       floatingActionButton: FloatingActionButton(child: Icon(Icons.add)), // FloatingActionButton
     );
   }
