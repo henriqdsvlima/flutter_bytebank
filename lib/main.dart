@@ -92,6 +92,7 @@ class TransferForm extends StatelessWidget {
                   fontSize: 20.0,
                 ), //TextStyle
                 decoration: InputDecoration(
+                  icon: Icon(Icons.monetization_on),
                   labelText: 'Valor',
                   hintText: '0000',
                 ), //Inputdecoration
