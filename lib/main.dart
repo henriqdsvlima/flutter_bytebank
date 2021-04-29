@@ -70,6 +70,10 @@ class TransferForm extends StatelessWidget {
           title: Text('Criando Transferências'),
           backgroundColor: Color(0xff25D366),
         ),
-        body: Column());
+        body: Column(
+          children: <Widget>[
+            TextField('Testandro')
+          ], //<Widget>[]
+        )); // Column, Scaffold
   }
 }
