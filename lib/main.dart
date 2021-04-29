@@ -7,9 +7,7 @@ void main() => runApp(MaterialApp(
         appBar: AppBar(
           title: Text('Transferências'),
         ), //AppBar
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-        ), // FloatingActionButton
+        floatingActionButton: FloatingActionButton(child: Icon(Icons.add), style: Color(Colors.green)), // FloatingActionButton
       ), //Scaffold
     )); //Material App
 
