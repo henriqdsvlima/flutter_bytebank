@@ -65,6 +65,10 @@ class TransferList extends StatelessWidget {
 class TransferForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Criando Transferências'),
+        ),
+        body: Column());
   }
 }
