@@ -72,7 +72,10 @@ class TransferForm extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            TextField(),
+            TextField(
+                decoration: InputDecoration(
+              labelText: 'Número da Conta',
+            )),
             TextField(),
             RaisedButton()
           ], //<Widget>[]
