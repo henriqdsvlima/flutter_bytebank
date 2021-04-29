@@ -28,7 +28,7 @@ class TransferList extends StatelessWidget {
       ),// Column
        floatingActionButton: FloatingActionButton(child: Icon(Icons.add)), // FloatingActionButton
       ),
-    );
+    )
   }
 }
 
