@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/material/list_tile.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
-void main() => runApp(MaterialApp(
+void main() => runApp(ByteBankApp()); //Material App
+
+class ByteBankApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
-        body: TransferList(), //Column
+        body: TransferForm(),
       ), //Scaffold
-    )); //Material App
+    ); //MaterialApp
+  }
+}
 
 //StatelessWidget - não conseguimos modificar o conteúdo entao a partir do momento em que é construido, não é possivel modificar o conteúdo;
 //StatefulWidget - teremos a capacidade de modificar o conteúdo do widget de maneira dinamica;
