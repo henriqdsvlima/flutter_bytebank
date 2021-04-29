@@ -72,10 +72,13 @@ class TransferForm extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            TextField(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child:TextField(
               style: TextStyle(
-                fontSize: 25.0,
+                fontSize: 23.0,
               ), //TextStyle
+            )
               decoration: InputDecoration(
                 labelText: 'Número da Conta',
                 hintText: '0000',
