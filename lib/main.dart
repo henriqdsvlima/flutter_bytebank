@@ -65,8 +65,8 @@ class TransferList extends StatelessWidget {
 }
 
 class TransferForm extends StatelessWidget {
-final TextEditingController _accountNumberController = TextEditingController();
-final TextEditingController _accountValueController = TextEditingController();
+  final TextEditingController _accountNumberController = TextEditingController();
+  final TextEditingController _accountValueController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,7 +109,8 @@ final TextEditingController _accountValueController = TextEditingController();
             RaisedButton(
               child: Text('Confirmar'),
               onPressed: () {
-                controller: TextEditingController(),
+                controller:
+                TextEditingController();
                 debugPrint('clicou no evento');
               },
             )
