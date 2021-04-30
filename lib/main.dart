@@ -6,8 +6,8 @@ import 'package:flutter/src/widgets/editable_text.dart';
 
 void main() => runApp(ByteBankApp()); //Material App
 
-//StatelessWidget - não conseguimos modificar o conteúdo entao a partir do momento em que é construido, não é possivel modificar o conteúdo;
-//StatefulWidget - teremos a capacidade de modificar o conteúdo do widget de maneira dinamica;
+// StatefulWidget - não conseguimos modificar o conteúdo entao a partir do momento em que é construido, não é possivel modificar o conteúdo;
+//StatelessWidget - teremos a capacidade de modificar o conteúdo do widget de maneira dinamica;
 
 class ByteBankApp extends StatelessWidget {
   @override
@@ -15,8 +15,8 @@ class ByteBankApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: TransferForm(),
-      ), //Scaffold
-    ); //MaterialApp
+      ),
+    );
   }
 }
 
@@ -45,8 +45,8 @@ class TransferItem extends StatelessWidget {
         leading: Icon(Icons.monetization_on),
         title: Text(_transfer.transferValue.toString()),
         subtitle: Text(_transfer.accountNumber.toString()),
-      ), //ListTile
-    ); //Card
+      ),
+    );
   }
 }
 
@@ -56,17 +56,16 @@ class TransferList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Transferências'),
-      ), //AppBar
+      ),
       body: Column(
         children: <Widget>[
           TransferItem(Transfer(1990.0, 1001)),
           TransferItem(Transfer(122.0, 1001)),
           TransferItem(Transfer(133.0, 1001)),
           TransferItem(Transfer(144.0, 1001)),
-        ], //<Widget>[]
-      ), //Column
-      floatingActionButton:
-          FloatingActionButton(child: Icon(Icons.add)), // FloatingActionButton
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(child: Icon(Icons.add)),
     );
   }
 }
@@ -94,14 +93,13 @@ class TransferForm extends StatelessWidget {
               hint: '0000',
               label: 'Valor a ser transferido:',
               icon: Icons.monetization_on,
-            ), //Padding
-            //Padding,
+            ),
             RaisedButton(
               child: Text('Confirmar'),
               onPressed: () => _transferCreated(),
             )
-          ], //<Widget>[]
-        )); // Column, Scaffold
+          ],
+        ));
   }
 
   void _transferCreated() {
@@ -129,14 +127,14 @@ class Editor extends StatelessWidget {
         controller: controller,
         style: TextStyle(
           fontSize: 20.0,
-        ), //TextStyle
+        ),
         decoration: InputDecoration(
           icon: icon != null ? Icon(icon) : null,
           labelText: label,
           hintText: hint,
-        ), //Inputdecoration
+        ),
         keyboardType: TextInputType.number,
-      ), //TextField
+      ),
     );
   }
 }
