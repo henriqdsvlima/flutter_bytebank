@@ -100,9 +100,7 @@ class TransferForm extends StatelessWidget {
                 keyboardType: TextInputType.number,
               ), //TextField
             ), //Padding,
-            RaisedButton(
-              child: Text('Confirmar'),
-            )
+            RaisedButton(child: Text('Confirmar'), onPressed: () {})
           ], //<Widget>[]
         )); // Column, Scaffold
   }
