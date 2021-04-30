@@ -115,7 +115,7 @@ class TransferForm extends StatelessWidget {
                 final int accountNumber = int.tryParse(_accountNumberController.text);
                 final double accountValue = double.tryParse(_accountValueController.text);
                 if (accountNumber != null && accountValue != null) {
-                  final transferSuccess = Transfer(accountNumber, accountValue);
+                  final transferSuccess = Transfer(accountValue, accountNumber);
                   debugPrint('$transferSuccess');
                 }
               },
