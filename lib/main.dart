@@ -84,53 +84,59 @@ class TransferForm extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: TextField(
+            Editor(
                 controller: _accountNumberController,
-                style: TextStyle(
-                  fontSize: 20.0,
-                ), //TextStyle
-                decoration: InputDecoration(
-                  icon: Icon(IconData(57358, fontFamily: 'MaterialIcons')),
-                  labelText: 'Número da Conta',
-                  hintText: '0000',
-                ), //Inputdecoration
-                keyboardType: TextInputType.number,
-              ), //TextField
+                hint: '0000',
+                label: 'Número da Conta:',
+                icon: IconData(57358, fontFamily: 'MaterialIcons')),
+            Editor(
+              controller: _accountNumberController,
+              hint: '0000',
+              label: 'Valor a ser transferido:',
+              icon: Icons.monetization_on,
             ), //Padding
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: TextField(
-                controller: _accountValueController,
-                style: TextStyle(
-                  fontSize: 20.0,
-                ), //TextStyle
-                decoration: InputDecoration(
-                  icon: Icon(Icons.monetization_on),
-                  labelText: 'Valor',
-                  hintText: '0000',
-                ), //Inputdecoration
-                keyboardType: TextInputType.number,
-              ), //TextField
-            ), //Padding,
+            //Padding,
             RaisedButton(
               child: Text('Confirmar'),
-              onPressed: () {
-                controller:
-                TextEditingController();
-                debugPrint('clicou no evento');
-                final int accountNumber =
-                    int.tryParse(_accountNumberController.text);
-                final double accountValue =
-                    double.tryParse(_accountValueController.text);
-                if (accountNumber != null && accountValue != null) {
-                  final transferSuccess = Transfer(accountValue, accountNumber);
-                  debugPrint('$transferSuccess');
-                }
-              },
+              onPressed: () => _transferCreated(),
             )
           ], //<Widget>[]
         )); // Column, Scaffold
+  }
+
+  void _transferCreated() {
+    final int accountNumber = int.tryParse(_accountNumberController.text);
+    final double accountValue = double.tryParse(_accountValueController.text);
+    if (accountNumber != null && accountValue != null) {
+      final transferSuccess = Transfer(accountValue, accountNumber);
+    }
+  }
+}
+
+class Editor extends StatelessWidget {
+  final TextEditingController controller;
+  final String label;
+  final String hint;
+  final IconData icon;
+
+  const Editor({this.controller, this.label, this.hint, this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: TextField(
+        controller: controller,
+        style: TextStyle(
+          fontSize: 20.0,
+        ), //TextStyle
+        decoration: InputDecoration(
+          icon: icon != null ? Icon(icon) : null,
+          labelText: label,
+          hintText: hint,
+        ), //Inputdecoration
+        keyboardType: TextInputType.number,
+      ), //TextField
+    );
   }
 }
