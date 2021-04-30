@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/material/list_tile.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/material/tabs.dart';
+import 'package:flutter/src/widgets/editable_text.dart';
 
 void main() => runApp(ByteBankApp()); //Material App
 
@@ -63,6 +65,8 @@ class TransferList extends StatelessWidget {
 }
 
 class TransferForm extends StatelessWidget {
+final TextEditingController _accountNumberController = TextEditingController();
+final TextEditingController _accountValueController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,6 +79,7 @@ class TransferForm extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
+                controller: _accountNumberController,
                 style: TextStyle(
                   fontSize: 20.0,
                 ), //TextStyle
@@ -89,6 +94,7 @@ class TransferForm extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
+                controller: _accountValueController,
                 style: TextStyle(
                   fontSize: 20.0,
                 ), //TextStyle
@@ -100,7 +106,13 @@ class TransferForm extends StatelessWidget {
                 keyboardType: TextInputType.number,
               ), //TextField
             ), //Padding,
-            RaisedButton(child: Text('Confirmar'), onPressed: () {})
+            RaisedButton(
+              child: Text('Confirmar'),
+              onPressed: () {
+                controller: TextEditingController(),
+                debugPrint('clicou no evento');
+              },
+            )
           ], //<Widget>[]
         )); // Column, Scaffold
   }
