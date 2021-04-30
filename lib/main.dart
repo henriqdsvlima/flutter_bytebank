@@ -112,7 +112,12 @@ class TransferForm extends StatelessWidget {
                 controller:
                 TextEditingController();
                 debugPrint('clicou no evento');
-                print(_accountValueController.text);
+                final int accountNumber = int.tryParse(_accountNumberController.text);
+                final double accountValue = double.tryParse(_accountValueController.text);
+                if (accountNumber != null && accountValue != null) {
+                  final transferSuccess = Transfer(accountNumber, accountValue);
+                  debugPrint('$transferSuccess');
+                }
               },
             )
           ], //<Widget>[]
