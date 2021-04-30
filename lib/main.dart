@@ -26,7 +26,11 @@ class Transfer {
 
   Transfer(this.transferValue, this.accountNumber);
 
-  return 'Transferência{valor: $transferValue, numeroConta: $accountNumber';
+  @override
+  String toString() {
+    // TODO: implement toString
+    return 'Transferência{valor: $transferValue, numero da conta: $accountNumber';
+  }
 }
 
 class TransferItem extends StatelessWidget {
@@ -61,13 +65,15 @@ class TransferList extends StatelessWidget {
           TransferItem(Transfer(144.0, 1001)),
         ], //<Widget>[]
       ), //Column
-      floatingActionButton: FloatingActionButton(child: Icon(Icons.add)), // FloatingActionButton
+      floatingActionButton:
+          FloatingActionButton(child: Icon(Icons.add)), // FloatingActionButton
     );
   }
 }
 
 class TransferForm extends StatelessWidget {
-  final TextEditingController _accountNumberController = TextEditingController();
+  final TextEditingController _accountNumberController =
+      TextEditingController();
   final TextEditingController _accountValueController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -114,8 +120,10 @@ class TransferForm extends StatelessWidget {
                 controller:
                 TextEditingController();
                 debugPrint('clicou no evento');
-                final int accountNumber = int.tryParse(_accountNumberController.text);
-                final double accountValue = double.tryParse(_accountValueController.text);
+                final int accountNumber =
+                    int.tryParse(_accountNumberController.text);
+                final double accountValue =
+                    double.tryParse(_accountValueController.text);
                 if (accountNumber != null && accountValue != null) {
                   final transferSuccess = Transfer(accountValue, accountNumber);
                   debugPrint('$transferSuccess');
