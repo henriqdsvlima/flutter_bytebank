@@ -112,6 +112,7 @@ class TransferForm extends StatelessWidget {
                 controller:
                 TextEditingController();
                 debugPrint('clicou no evento');
+                _accountValueController.text;
               },
             )
           ], //<Widget>[]
