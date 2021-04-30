@@ -8,6 +8,7 @@ void main() => runApp(ByteBankApp()); //Material App
 //StatefulWidget - teremos a capacidade de modificar o conteúdo do widget de maneira dinamica;
 
 class ByteBankApp extends StatelessWidget {
+  debugShowCheckedModeBanner: false,
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
