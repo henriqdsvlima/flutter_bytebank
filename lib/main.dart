@@ -25,6 +25,8 @@ class Transfer {
   final int accountNumber;
 
   Transfer(this.transferValue, this.accountNumber);
+
+  return 'Transferência{valor: $transferValue, numeroConta: $accountNumber '
 }
 
 class TransferItem extends StatelessWidget {
