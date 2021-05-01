@@ -79,7 +79,7 @@ class TransferForm extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('Criando Transferências'),
-          backgroundColor: Color(0xff25D366),
+          backgroundColor: Color(0xff8a2be2),
         ),
         body: Column(
           children: <Widget>[
