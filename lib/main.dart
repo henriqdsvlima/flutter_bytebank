@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/material/list_tile.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/material/tabs.dart';
-import 'package:flutter/src/widgets/editable_text.dart';
 
 void main() => runApp(ByteBankApp()); //Material App
 
@@ -14,7 +10,7 @@ class ByteBankApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: TransferForm(),
+        body: TransferList(),
       ),
     );
   }
@@ -28,11 +24,11 @@ class Transfer {
 
   @override
   String toString() {
-    // TODO: implement toString
     return 'Transferência{valor: $transferValue, numero da conta: $accountNumber';
   }
 }
 
+// ignore: must_be_immutable
 class TransferItem extends StatelessWidget {
   Transfer _transfer;
 
@@ -51,21 +47,37 @@ class TransferItem extends StatelessWidget {
 }
 
 class TransferList extends StatelessWidget {
+  final List<Transfer> _transfers = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xfff0f0f5),
       appBar: AppBar(
         title: Text('Transferências'),
+        backgroundColor: Color(0xff8a2be2),
       ),
-      body: Column(
-        children: <Widget>[
-          TransferItem(Transfer(1990.0, 1001)),
-          TransferItem(Transfer(122.0, 1001)),
-          TransferItem(Transfer(133.0, 1001)),
-          TransferItem(Transfer(144.0, 1001)),
-        ],
+      body: ListView.builder(
+          itemCount: _transfers.length,
+          itemBuilder: (context, index) {
+            final transfers = _transfers[index];
+            return TransferItem(transfers);
+          }),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xff8a2be2),
+        child: Icon(Icons.add),
+        onPressed: () {
+          final Future<Transfer> future =
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+            // navegou para a pagina do formulario da transferencia ao clicar no FAB
+            return TransferForm();
+          }));
+          future.then((transferReceived) {
+            // esperando a função do Future que esta dentro do <trasnfer> acontecer pra fazer essa função de receber a transferencia
+            _transfers.add(transferReceived);
+          });
+        },
       ),
-      floatingActionButton: FloatingActionButton(child: Icon(Icons.add)),
     );
   }
 }
@@ -77,6 +89,7 @@ class TransferForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color(0xfff0f0f5),
         appBar: AppBar(
           title: Text('Criando Transferências'),
           backgroundColor: Color(0xff8a2be2),
@@ -89,24 +102,31 @@ class TransferForm extends StatelessWidget {
                 label: 'Número da Conta:',
                 icon: IconData(57358, fontFamily: 'MaterialIcons')),
             Editor(
-              controller: _accountNumberController,
+              controller: _accountValueController,
               hint: '0000',
               label: 'Valor a ser transferido:',
               icon: Icons.monetization_on,
             ),
-            RaisedButton(
-              child: Text('Confirmar'),
-              onPressed: () => _transferCreated(),
+            ElevatedButton(
+              style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Color(0xff8a2be2))),
+              child: Text(
+                'Confirmar',
+              ),
+              onPressed: () => _transferCreated(context),
             )
           ],
         ));
   }
 
-  void _transferCreated() {
+  void _transferCreated(BuildContext context) {
     final int accountNumber = int.tryParse(_accountNumberController.text);
     final double accountValue = double.tryParse(_accountValueController.text);
     if (accountNumber != null && accountValue != null) {
       final transferSuccess = Transfer(accountValue, accountNumber);
+      Navigator.pop(context,
+          transferSuccess); // função que vai tirar a tela da pilha de telas
     }
   }
 }
